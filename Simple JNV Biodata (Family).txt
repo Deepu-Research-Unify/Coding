@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PM SHRI JNV - Student Biodata</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      margin: 40px;
+      background: #fff;
+      color: #000;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .top-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .logo img {
+      width: 80px;
+      height: auto;
+    }
+
+    .school-title {
+      text-align: center;
+      flex: 1;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .photo-box {
+      width: 100px;
+      height: 130px;
+      border: 1px solid #000;
+      text-align: center;
+      position: relative;
+      font-size: 12px;
+      overflow: hidden;
+    }
+
+    .photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .photo-box input[type="file"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .photo-label {
+      text-align: right;
+      font-size: 13px;
+      font-weight: bold;
+      margin-top: 4px;
+    }
+
+    .underline-row {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0 10px;
+    }
+
+    .underline-row label {
+      font-weight: bold;
+      margin-right: 5px;
+    }
+
+    .underline-row .field {
+      flex: 1;
+      border-bottom: 1px solid #000;
+      margin-right: 20px;
+      padding-bottom: 2px;
+    }
+
+    .underline-row .field:last-child {
+      margin-right: 0;
+    }
+
+    .biodata-title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #000;
+      padding-bottom: 5px;
+    }
+
+    .form-body {
+      counter-reset: qno;
+    }
+
+    .form-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .form-group label {
+      flex: 0 0 340px;
+      font-weight: bold;
+      counter-increment: qno;
+    }
+
+    .form-group label::before {
+      content: counter(qno) ". ";
+    }
+
+    .form-group input[type="text"] {
+      flex: 1;
+      border: none;
+      border-bottom: 1px solid #000;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 14px;
+      background: transparent;
+      padding: 2px;
+    }
+
+    .form-group input.short {
+      width: 200px;
+    }
+
+    /* Family Photo Section */
+    .family-photo-section {
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .family-photo-label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .family-photo-box {
+      width: 200px;
+      height: 130px;
+      border: 1px solid #000;
+      position: relative;
+      font-size: 12px;
+      overflow: hidden;
+    }
+
+    .family-photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .family-photo-box input[type="file"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .btn-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 14px;
+      background: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    @media print {
+      input[type="file"],
+      .btn-container {
+        display: none;
+      }
+
+      .photo-box img,
+      .family-photo-box img {
+        display: block;
+      }
+
+      input[type="text"] {
+        border: none;
+        outline: none;
+        background: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Header with Logo, Title and Student Photo -->
+    <div class="top-header">
+      <div class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/82/Jawahar_Navodaya_Vidyalaya_logo.png/250px-Jawahar_Navodaya_Vidyalaya_logo.png" alt="JNV Logo">
+      </div>
+
+      <div class="school-title">
+        PM SHRI Jawahar Navodaya Vidyalaya
+      </div>
+
+      <div>
+        <div class="photo-box" id="photoBox">
+          <img id="photoPreview" alt="Student Photo">
+          <input type="file" accept="image/*" onchange="previewPhoto(event)">
+        </div>
+        <div class="photo-label">Student Photo</div>
+      </div>
+    </div>
+
+    <!-- Taluka, District, State Row -->
+    <div class="underline-row">
+      <div class="field">
+        <label>Taluka:</label><input type="text" style="border: none; width: 100%; background: transparent;">
+      </div>
+      <div class="field">
+        <label>District:</label><input type="text" style="border: none; width: 100%; background: transparent;">
+      </div>
+      <div class="field">
+        <label>State:</label><input type="text" style="border: none; width: 100%; background: transparent;">
+      </div>
+    </div>
+
+    <!-- Biodata Title -->
+    <div class="biodata-title">Biodata</div>
+
+    <!-- Biodata Form -->
+    <div class="form-body">
+      <div class="form-group"><label>Full Name of the Student:</label><input type="text"></div>
+      <div class="form-group"><label>Gender (Boy/Girl):</label><input type="text" class="short"></div>
+      <div class="form-group"><label>Father’s/Guardian’s Name:</label><input type="text"></div>
+      <div class="form-group"><label>Mother’s Name:</label><input type="text"></div>
+      <div class="form-group"><label>Date of Birth (as per Birth Certificate):</label><input type="text" class="short"></div>
+      <div class="form-group"><label>Blood Group:</label><input type="text" class="short"></div>
+      <div class="form-group"><label>Class / Standard:</label><input type="text" class="short"></div>
+      <div class="form-group"><label>House Name:</label><input type="text" class="short"></div>
+      <div class="form-group"><label>Junior / Senior:</label><input type="text" class="short"></div>
+      <div class="form-group"><label>House Master / AHM:</label><input type="text"></div>
+      <div class="form-group"><label>Class Teacher’s Name:</label><input type="text"></div>
+      <div class="form-group"><label>Category (General / OBC / SC / ST):</label><input type="text" class="short"></div>
+      <div class="form-group"><label>Area of Residence (Urban / Rural):</label><input type="text" class="short"></div>
+      <div class="form-group"><label>Address:</label><input type="text"></div>
+      <div class="form-group"><label>Aim (What do you want to become?):</label><input type="text"></div>
+      <div class="form-group"><label>Responsibility (e.g., House Leader):</label><input type="text"></div>
+      <div class="form-group"><label>Sports (Games you play):</label><input type="text"></div>
+    </div>
+
+    <!-- Family Photo Section -->
+    <div class="family-photo-section">
+      <div class="family-photo-label">Family Photo:</div>
+      <div class="family-photo-box" id="familyPhotoBox">
+        <img id="familyPhotoPreview" alt="Family Photo">
+        <input type="file" accept="image/*" onchange="previewFamilyPhoto(event)">
+      </div>
+    </div>
+
+    <!-- Print Button -->
+    <div class="btn-container">
+      <button onclick="window.print()">🖨️ Print / Save as PDF</button>
+    </div>
+
+  </div>
+
+  <script>
+    function previewPhoto(event) {
+      const reader = new FileReader();
+      reader.onload = function () {
+        const img = document.getElementById('photoPreview');
+        img.src = reader.result;
+        img.style.display = 'block';
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
+
+    function previewFamilyPhoto(event) {
+      const reader = new FileReader();
+      reader.onload = function () {
+        const img = document.getElementById('familyPhotoPreview');
+        img.src = reader.result;
+        img.style.display = 'block';
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  </script>
+
+</body>
+</html>

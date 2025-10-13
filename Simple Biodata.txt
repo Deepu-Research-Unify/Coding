@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PM SHRI JNV - Student Biodata (Typeable)</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      margin: 40px;
+      background: #fff 
+      background-size: 300px 300px;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: #000;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      position: relative;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    .line-break {
+      border-bottom: 2px solid black;
+      margin: 10px 0;
+    }
+
+    .biodata-title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 10px 0;
+    }
+
+    .location-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .loc-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .loc-item input {
+      width: 150px;
+      border: none;
+      border-bottom: 1px solid #000;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 14px;
+      background: transparent;
+      padding: 2px;
+    }
+
+    .photo-section {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 30px;
+    }
+
+    .photo-box {
+      width: 120px;
+      height: 150px;
+      border: 1px solid #000;
+      text-align: center;
+      font-size: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .photo-box input[type="file"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .photo-label {
+      text-align: right;
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 5px;
+      margin-bottom: 10px;
+    }
+
+    .form-body {
+      counter-reset: question-counter;
+    }
+
+    .form-group {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .form-group label {
+      flex: 0 0 340px;
+      font-weight: bold;
+      counter-increment: question-counter;
+    }
+
+    .form-group label::before {
+      content: counter(question-counter) ". ";
+      font-weight: bold;
+    }
+
+    .form-group input[type="text"] {
+      flex: 1;
+      border: none;
+      border-bottom: 1px solid #000;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 14px;
+      background: transparent;
+      padding: 2px;
+    }
+
+    .form-group input.short {
+      width: 200px;
+    }
+
+    .btn-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 14px;
+      background: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    @media print {
+      input[type="file"],
+      .btn-container {
+        display: none;
+      }
+
+      .photo-box img {
+        display: block;
+      }
+
+      input[type="text"] {
+        border: none;
+        outline: none;
+        background: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- School Name -->
+    <h1>PM SHRI Jawahar Navodaya Vidyalaya</h1>
+
+    <!-- Line -->
+    <div class="line-break"></div>
+
+    <!-- Biodata Title -->
+    <div class="biodata-title">Biodata</div>
+
+    <!-- Line -->
+    <div class="line-break"></div>
+
+    <!-- Taluka, District, State -->
+    <div class="location-header">
+      <div class="loc-item">
+        <label>Taluka:</label>
+        <input type="text">
+      </div>
+      <div class="loc-item">
+        <label>District:</label>
+        <input type="text">
+      </div>
+      <div class="loc-item">
+        <label>State:</label>
+        <input type="text">
+      </div>
+    </div>
+
+    <!-- Photo Upload -->
+    <div class="photo-section">
+      <div>
+        <div class="photo-box" id="photoBox">
+          <img id="photoPreview" alt="Student Photo">
+          <input type="file" accept="image/*" onchange="previewPhoto(event)">
+        </div>
+        <div class="photo-label">Student Photo</div>
+      </div>
+    </div>
+
+    <!-- Fillable Form Starts -->
+    <div class="form-body">
+      <div class="form-group">
+        <label>Full Name of the Student:</label>
+        <input type="text">
+      </div>
+      <div class="form-group">
+        <label>Gender (Boy/Girl):</label>
+        <input type="text" class="short">
+      </div>
+      <div class="form-group">
+        <label>Father’s/Guardian’s Name:</label>
+        <input type="text">
+      </div>
+      <div class="form-group">
+        <label>Mother’s Name:</label>
+        <input type="text">
+      </div>
+      <div class="form-group">
+        <label>Date of Birth (as per Birth Certificate):</label>
+        <input type="text" class="short">
+      </div>
+      <div class="form-group">
+        <label>Blood Group:</label>
+        <input type="text" class="short">
+      </div>
+      <div class="form-group">
+        <label>Class / Standard:</label>
+        <input type="text" class="short">
+      </div>
+      <div class="form-group">
+        <label>House Name:</label>
+        <input type="text" class="short">
+      </div>
+      <div class="form-group">
+        <label>Junior / Senior:</label>
+        <input type="text" class="short">
+      </div>
+      <div class="form-group">
+        <label>House Master / AHM:</label>
+        <input type="text">
+      </div>
+      <div class="form-group">
+        <label>Class Teacher’s Name:</label>
+        <input type="text">
+      </div>
+      <div class="form-group">
+        <label>Category (General / OBC / SC / ST):</label>
+        <input type="text" class="short">
+      </div>
+      <div class="form-group">
+        <label>Area of Residence (Urban / Rural):</label>
+        <input type="text" class="short">
+      </div>
+      <div class="form-group">
+        <label>Address:</label>
+        <input type="text">
+      </div>
+      <div class="form-group">
+        <label>Aim (What do you want to become?):</label>
+        <input type="text">
+      </div>
+      <div class="form-group">
+        <label>Responsibility (e.g., House Leader):</label>
+        <input type="text">
+      </div>
+      <div class="form-group">
+        <label>Sports (Games you play):</label>
+        <input type="text">
+      </div>
+    </div>
+
+    <!-- Print Button -->
+    <div class="btn-container">
+      <button onclick="window.print()">🖨️ Print / Save as PDF</button>
+    </div>
+  </div>
+
+  <script>
+    function previewPhoto(event) {
+      const reader = new FileReader();
+      reader.onload = function () {
+        const img = document.getElementById('photoPreview');
+        img.src = reader.result;
+        img.style.display = 'block';
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  </script>
+
+</body>
+</html>
+
+
+

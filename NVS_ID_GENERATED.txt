@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>JNV ID Card Generator</title>
+  <style>
+    :root {
+      --font-size: 8pt;
+    }
+
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      background: linear-gradient(135deg, #e0f2f1, #b2ebf2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      font-size: var(--font-size);
+      margin: 0;
+    }
+
+    .id-card {
+      width: 86mm;
+      height: 54mm;
+      background: linear-gradient(135deg, #e0f7fa, #b3e5fc);
+      padding: 6px 8px;
+      box-sizing: border-box;
+      position: relative;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      font-family: 'Times New Roman', Times, serif;
+      font-size: var(--font-size);
+      color: #000;
+
+      border: 3px solid #0d47a1; /* Dark blue border */
+      border-radius: 8px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1px; /* Reduced gap */
+    }
+
+    .logo {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 35px;
+      display: block;
+    }
+
+    .school-name {
+      flex: 1 1 auto;
+      text-align: center;
+      font-weight: bold;
+      font-size: var(--font-size);
+      padding: 0 6px;
+      user-select: none;
+      text-transform: uppercase; /* ALL CAPS */
+      line-height: 1.1;
+    }
+
+    .govt-line {
+      font-size: 7pt;
+      font-weight: normal;
+      display: block;
+      margin-top: 1px;
+      text-transform: none;
+    }
+
+    .photo-placeholder {
+      flex: 0 0 auto;
+      width: 35px;
+      height: 45px;
+      background-color: #ddd;
+      border: 1px solid #000;
+      object-fit: cover;
+      display: block;
+    }
+
+    .location {
+      font-size: var(--font-size);
+      font-weight: bold;
+      text-align: center;
+      margin-top: 1px; /* Reduced margin */
+      line-height: 1.1;
+      user-select: none;
+      color: green;
+    }
+
+    .location span {
+      margin: 0 6px;
+    }
+
+    hr {
+      margin: 2px 0 3px 0;
+      border: none;
+      border-top: 1px solid #333;
+    }
+
+    .student-info {
+      font-size: var(--font-size);
+      line-height: 1.1;
+      margin-top: 2px;
+      user-select: none;
+    }
+
+    .student-info-row {
+      margin-bottom: 1px;
+    }
+
+    .student-info-row label {
+      font-weight: bold;
+      display: inline-block;
+      width: 80px;
+    }
+
+    .student-info-row .field {
+      display: inline-block;
+      font-weight: normal;
+      border-bottom: 1px solid #999;
+      min-width: 80px;
+      padding: 0 3px;
+      color: red;
+      text-transform: capitalize;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 6px;
+      right: 8px;
+      text-align: right;
+      font-size: var(--font-size);
+      user-select: none;
+      color: black;
+    }
+
+    .signature {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 12px;
+      margin-bottom: 1px;
+      user-select: none;
+    }
+
+    .controls {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="tel"] {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: var(--font-size);
+      padding: 4px;
+      margin: 3px 6px;
+      width: 200px;
+      box-sizing: border-box;
+      text-transform: capitalize; /* auto capitalize */
+    }
+
+    button {
+      padding: 6px 12px;
+      margin: 5px 8px;
+      cursor: pointer;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: var(--font-size);
+      user-select: none;
+    }
+
+    .gallery {
+      margin-top: 20px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .gallery img {
+      margin: 10px;
+      border: 1px solid #333;
+      width: 172px;
+      height: auto;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="card" class="id-card">
+    <div class="header">
+      <div class="logo">
+        <img
+          id="logoImg"
+          src="https://upload.wikimedia.org/wikipedia/en/thumb/8/82/Jawahar_Navodaya_Vidyalaya_logo.png/250px-Jawahar_Navodaya_Vidyalaya_logo.png"
+          alt="JNV Logo"
+        />
+      </div>
+      <div class="school-name">
+        PM SHRI JAWAHAR NAVODAYA VIDYALAYA<br />
+        <span class="govt-line">Govt. of India & Ministry of Education</span>
+      </div>
+      <img id="photo" class="photo-placeholder" src="" alt="Student Photo" />
+    </div>
+
+    <div class="location" id="locationDisplay">
+      <span id="taluka"></span>
+      <span id="district"></span><br />
+      <span id="state"></span>
+      <span id="region"></span>
+    </div>
+
+    <hr />
+
+    <div class="student-info">
+      <div class="student-info-row"><label>Name:</label><span class="field" id="nameField"></span></div>
+      <div class="student-info-row"><label>Father's Name:</label><span class="field" id="fatherField"></span></div>
+      <div class="student-info-row"><label>Mother's Name:</label><span class="field" id="motherField"></span></div>
+      <div class="student-info-row"><label>DOB:</label><span class="field" id="dobField"></span></div>
+      <div class="student-info-row"><label>House:</label><span class="field" id="houseField"></span></div>
+      <div class="student-info-row"><label>GR No:</label><span class="field" id="grField"></span></div>
+      <div class="student-info-row"><label>Batch:</label><span class="field" id="batchField"></span></div>
+      <div class="student-info-row"><label>Mobile:</label><span class="field" id="mobileField"></span></div>
+    </div>
+
+    <div class="footer">
+      <div class="signature">Deepu Kumar</div>
+      Principal
+    </div>
+  </div>
+
+  <div class="controls">
+    <h3>Fill Student Details</h3>
+    <input type="text" id="inputName" placeholder="Student Name" /><br />
+    <input type="text" id="inputFather" placeholder="Father's Name" /><br />
+    <input type="text" id="inputMother" placeholder="Mother's Name" /><br />
+    <input type="text" id="inputDOB" placeholder="YYYY-MM-DD" /><br />
+    <input type="text" id="inputHouse" placeholder="House" /><br />
+    <input type="text" id="inputGR" placeholder="GR No." /><br />
+    <input type="text" id="inputBatch" placeholder="Batch (e.g. 2024-25)" /><br />
+    <input type="tel" id="inputMobile" placeholder="Mobile Number" /><br /><br />
+
+    <h4>Location</h4>
+    <input type="text" id="inputTaluka" placeholder="Taluka" />
+    <input type="text" id="inputDistrict" placeholder="District" /><br />
+    <input type="text" id="inputState" placeholder="State" />
+    <input type="text" id="inputRegion" placeholder="Region" /><br /><br />
+
+    <label for="photoUpload">Upload Student Photo:</label><br />
+    <input type="file" id="photoUpload" accept="image/*" /><br /><br />
+
+    <button onclick="generateCard()">🔄 Generate / Update Card</button>
+    <button onclick="printCard()">🖨️ Print ID Card</button>
+    <button onclick="downloadAsImage()">🖼️ Save ID to Gallery</button>
+  </div>
+
+  <div class="gallery" id="gallery">
+    <h3>📚 Saved ID Gallery</h3>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    // Upload photo
+    document.getElementById("photoUpload").addEventListener("change", function (e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        document.getElementById("photo").src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // Fill fields
+    function generateCard() {
+      document.getElementById("nameField").innerText = document.getElementById("inputName").value;
+      document.getElementById("fatherField").innerText = document.getElementById("inputFather").value;
+      document.getElementById("motherField").innerText = document.getElementById("inputMother").value;
+      document.getElementById("dobField").innerText = document.getElementById("inputDOB").value;
+      document.getElementById("houseField").innerText = document.getElementById("inputHouse").value;
+      document.getElementById("grField").innerText = document.getElementById("inputGR").value;
+      document.getElementById("batchField").innerText = document.getElementById("inputBatch").value;
+      document.getElementById("mobileField").innerText = document.getElementById("inputMobile").value;
+
+      document.getElementById("taluka").innerText = "Taluka: " + document.getElementById("inputTaluka").value;
+      document.getElementById("district").innerText = "District: " + document.getElementById("inputDistrict").value;
+      document.getElementById("state").innerText = "State: " + document.getElementById("inputState").value;
+      document.getElementById("region").innerText = "Region: " + document.getElementById("inputRegion").value;
+    }
+
+    // Print
+    function printCard() {
+      generateCard();
+      const originalHTML = document.body.innerHTML;
+      const cardHTML = document.getElementById("card").outerHTML;
+      document.body.innerHTML = `
+        <div style="background: linear-gradient(135deg, #e0f7fa, #b3e5fc); padding: 20px;">
+          ${cardHTML}
+        </div>
+      `;
+      window.print();
+      location.reload();
+    }
+
+    // Save as image
+    function downloadAsImage() {
+      generateCard();
+      const cardElem = document.getElementById("card");
+      html2canvas(cardElem).then(canvas => {
+        const imageURL = canvas.toDataURL("image/png");
+        const img = document.createElement("img");
+        img.src = imageURL;
+        document.getElementById("gallery").appendChild(img);
+
+        const link = document.createElement("a");
+        link.download = "JNV_ID_Card.png";
+        link.href = imageURL;
+        link.click();
+      });
+    }
+  </script>
+</body>
+</html>

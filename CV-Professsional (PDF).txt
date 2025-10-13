@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Professional CV - Your Name</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 20mm 25mm 20mm 25mm;
+    }
+    body {
+      font-family: 'Times New Roman', serif;
+      font-size: 13px; /* ~10pt */
+      line-height: 1.3;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #000;
+      -webkit-print-color-adjust: exact;
+      text-align: justify;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px 30px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    header h1 {
+      font-size: 26px;
+      margin: 0;
+    }
+    .contact-info {
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+    .contact-info a {
+      color: #000080;
+      text-decoration: none;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+    section {
+      margin-bottom: 15px;
+    }
+    section h2 {
+      font-size: 16px;
+      border-bottom: 1px solid #000;
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+      font-weight: bold;
+      text-align: left;
+    }
+    p, ul {
+      margin-top: 0;
+      margin-bottom: 7px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 4px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+      font-size: 13px;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 6px 8px;
+      vertical-align: top;
+      text-align: justify;
+    }
+    th {
+      background-color: #eee;
+      font-weight: bold;
+      text-align: left;
+    }
+    .dates {
+      width: 110px;
+      white-space: nowrap;
+      text-align: center;
+      font-size: 12px;
+      color: #666;
+    }
+    .print-button {
+      display: block;
+      width: 140px;
+      margin: 0 auto 30px;
+      padding: 10px;
+      background: #004080;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.3s ease;
+    }
+    .print-button:hover {
+      background: #002c52;
+    }
+    @media print {
+      .print-button {
+        display: none;
+      }
+      body {
+        margin: 0;
+      }
+      .container {
+        padding: 0;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="print-button" onclick="window.print()">Print / Save PDF</button>
+
+    <header>
+      <h1>Your Full Name</h1>
+    </header>
+
+    <div class="contact-info">
+      Phone: +123 456 7890 | Email: <a href="mailto:your.email@example.com">your.email@example.com</a><br />
+      LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a> | Portfolio: <a href="https://yourportfolio.com" target="_blank">yourportfolio.com</a><br />
+      Location: Your City, Country (optional)
+    </div>
+
+    <section>
+      <h2>Professional Summary</h2>
+      <p>Dedicated environmental professional with over 5 years of experience in GIS, data analysis, and environmental impact assessment. Skilled in project management, research, and stakeholder communication, with a passion for sustainable solutions.</p>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <ul>
+        <li><strong>Hard skills:</strong> GIS, Data Analysis, Environmental Impact Assessment, Remote Sensing</li>
+        <li><strong>Soft skills:</strong> Communication, Teamwork, Critical Thinking, Problem Solving</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Degree</th>
+            <th>Institution</th>
+            <th class="dates">Dates</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>M.Sc. Environmental Science</td>
+            <td>University of Environmental Studies</td>
+            <td class="dates">2018 - 2020</td>
+            <td>Relevant coursework: Climate Change, Environmental Policy, Advanced GIS</td>
+          </tr>
+          <tr>
+            <td>B.Sc. Geography</td>
+            <td>City College</td>
+            <td class="dates">2014 - 2018</td>
+            <td>Graduated with Honors</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Professional Experience</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Job Title</th>
+            <th>Employer</th>
+            <th class="dates">Dates</th>
+            <th>Responsibilities & Achievements</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Environmental Analyst</td>
+            <td>GreenEarth Consulting</td>
+            <td class="dates">2020 - Present</td>
+            <td>
+              <ul>
+                <li>Conduct GIS mapping and data analysis to support environmental assessments.</li>
+                <li>Prepare detailed reports on environmental impact for client projects.</li>
+                <li>Coordinate with stakeholders to implement sustainable project plans.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>Research Assistant</td>
+            <td>University of Environmental Studies</td>
+            <td class="dates">2018 - 2020</td>
+            <td>
+              <ul>
+                <li>Assisted in research projects focused on air quality and climate data analysis.</li>
+                <li>Presented findings at departmental seminars and conferences.</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Certifications & Training</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Certification</th>
+            <th>Organization</th>
+            <th class="dates">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>LEED Green Associate</td>
+            <td>U.S. Green Building Council</td>
+            <td class="dates">2022</td>
+          </tr>
+          <tr>
+            <td>NEBOSH Environmental Management</td>
+            <td>NEBOSH</td>
+            <td class="dates">2021</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Research / Projects</h2>
+      <p><strong>Study on Urban Air Quality Trends</strong>, published in Environmental Science Journal, 2021.<br />
+      Principal investigator on a 6-month project analyzing pollution data across metropolitan areas.</p>
+      <p><strong>GIS Mapping for Wetland Conservation</strong>, project funded by National Science Grant, 2019.<br />
+      Developed interactive GIS maps to assist conservation planning.</p>
+    </section>
+
+    <section>
+      <h2>Publications & Presentations</h2>
+      <p><strong>"Climate Change and Coastal Ecosystems"</strong>, Presented at International Climate Conference, 2023.</p>
+      <p><strong>"GIS Applications in Urban Planning"</strong>, Published in GeoEnvironmental Reports, 2022.</p>
+    </section>
+
+    <section>
+      <h2>Volunteer Work / Community Involvement</h2>
+      <p><strong>Community Clean-Up Organizer</strong> - Local Green Initiatives, 2021 - Present.<br />
+      Organize monthly environmental clean-ups and awareness campaigns.</p>
+      <p><strong>Environmental Education Volunteer</strong> - City School Program, 2019 - 2021.<br />
+      Delivered workshops on sustainability and conservation to students.</p>
+    </section>
+
+    <section>
+      <h2>Awards & Honors</h2>
+      <p><strong>Excellence in Environmental Research Award</strong> - University of Environmental Studies, 2020</p>
+      <p><strong>Outstanding Volunteer Award</strong> - Local Green Initiatives, 2022</p>
+    </section>
+
+    <section>
+      <h2>Languages</h2>
+      <ul>
+        <li>English – Native</li>
+        <li>Spanish – Intermediate</li>
+        <li>French – Basic</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>References</h2>
+      <p>Available upon request.</p>
+    </section>
+  </div>
+</body>
+</html>

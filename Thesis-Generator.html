@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Thesis Paper Generator</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', serif;
+      font-size: 12pt;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    form {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 6px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    textarea, input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      font-family: 'Times New Roman', serif;
+      font-size: 12pt;
+      box-sizing: border-box;
+      margin-top: 5px;
+    }
+
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 14pt;
+      background-color: #004080;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #paper {
+      display: none;
+      background: white;
+      padding: 40px;
+      margin-top: 40px;
+      max-width: 850px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    #paper h2 {
+      text-align: center;
+      font-size: 18pt;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    #paper .institution {
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    #paper hr {
+      width: 60%;
+      border: 1px solid #444;
+      margin: 10px auto 20px;
+    }
+
+    .section-title {
+      font-weight: bold;
+      font-size: 14pt;
+      color: #003366;
+      border-bottom: 2px solid #003366;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      padding-bottom: 4px;
+    }
+
+    #paper p {
+      text-align: justify;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+
+    @media print {
+      body > *:not(#paper) {
+        display: none !important;
+      }
+      #paper {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        border: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Student Thesis Paper Generator</h1>
+
+  <form id="thesisForm">
+    <label for="title">Title:</label>
+    <input type="text" id="title" required />
+
+    <label for="author">Author(s):</label>
+    <input type="text" id="author" required />
+
+    <label for="supervisor">Supervisor(s):</label>
+    <input type="text" id="supervisor" />
+
+    <label for="institution">Institution:</label>
+    <input type="text" id="institution" />
+
+    <label for="abstract">Abstract:</label>
+    <textarea id="abstract" required></textarea>
+
+    <label for="introduction">Introduction:</label>
+    <textarea id="introduction" required></textarea>
+
+    <label for="literatureReview">Literature Review:</label>
+    <textarea id="literatureReview"></textarea>
+
+    <label for="methodology">Data and Methodology:</label>
+    <textarea id="methodology"></textarea>
+
+    <label for="results">Results and Discussion:</label>
+    <textarea id="results"></textarea>
+
+    <label for="conclusion">Conclusion:</label>
+    <textarea id="conclusion"></textarea>
+
+    <label for="futureScope">Future Scope:</label>
+    <textarea id="futureScope"></textarea>
+
+    <label for="abbreviations">Abbreviations:</label>
+    <textarea id="abbreviations"></textarea>
+
+    <label for="references">References (APA Style):</label>
+    <textarea id="references"></textarea>
+
+    <button type="submit">Generate Paper</button>
+  </form>
+
+  <div id="paper"></div>
+
+  <script>
+    const form = document.getElementById('thesisForm');
+    const paperDiv = document.getElementById('paper');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const title = document.getElementById('title').value.trim();
+      const author = document.getElementById('author').value.trim();
+      const supervisor = document.getElementById('supervisor').value.trim();
+      const institution = document.getElementById('institution').value.trim();
+      const abstract = document.getElementById('abstract').value.trim();
+      const introduction = document.getElementById('introduction').value.trim();
+      const literatureReview = document.getElementById('literatureReview').value.trim();
+      const methodology = document.getElementById('methodology').value.trim();
+      const results = document.getElementById('results').value.trim();
+      const conclusion = document.getElementById('conclusion').value.trim();
+      const futureScope = document.getElementById('futureScope').value.trim();
+      const abbreviations = document.getElementById('abbreviations').value.trim();
+      const references = document.getElementById('references').value.trim();
+
+      let content = `
+        <div class="institution">${institution}</div>
+        <h2>${title}</h2>
+        <hr>
+        <p style="text-align:center;"><strong>Author(s):</strong> ${author}</p>
+        ${supervisor ? `<p style="text-align:center;"><strong>Supervisor(s):</strong> ${supervisor}</p>` : ''}
+        
+        <div class="section">
+          <div class="section-title">Abstract</div>
+          <p>${abstract}</p>
+        </div>
+        
+        <div class="section">
+          <div class="section-title">Introduction</div>
+          <p>${introduction}</p>
+        </div>`;
+
+      if (literatureReview) {
+        content += `
+        <div class="section">
+          <div class="section-title">Literature Review</div>
+          <p>${literatureReview}</p>
+        </div>`;
+      }
+
+      if (methodology) {
+        content += `
+        <div class="section">
+          <div class="section-title">Data and Methodology</div>
+          <p>${methodology}</p>
+        </div>`;
+      }
+
+      if (results) {
+        content += `
+        <div class="section">
+          <div class="section-title">Results and Discussion</div>
+          <p>${results}</p>
+        </div>`;
+      }
+
+      if (conclusion) {
+        content += `
+        <div class="section">
+          <div class="section-title">Conclusion</div>
+          <p>${conclusion}</p>
+        </div>`;
+      }
+
+      if (futureScope) {
+        content += `
+        <div class="section">
+          <div class="section-title">Future Scope</div>
+          <p>${futureScope}</p>
+        </div>`;
+      }
+
+      if (abbreviations) {
+        content += `
+        <div class="section">
+          <div class="section-title">Abbreviations</div>
+          <p>${abbreviations}</p>
+        </div>`;
+      }
+
+      if (references) {
+        content += `
+        <div class="section">
+          <div class="section-title">References</div>
+          <p>${references}</p>
+        </div>`;
+      }
+
+      content += `
+        <div style="text-align: center; margin-top: 30px;">
+          <button onclick="window.print()" style="padding: 10px 20px; font-size: 14pt; background:#004080; color:white; border:none; border-radius:4px;">Print Paper</button>
+        </div>`;
+
+      paperDiv.innerHTML = content;
+      paperDiv.style.display = 'block';
+      paperDiv.scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>

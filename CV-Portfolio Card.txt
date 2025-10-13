@@ -1,0 +1,24 @@
+<header class="section visible" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;">
+  <!-- Profile Photo (Clickable) -->
+  <div style="flex-shrink: 0;">
+    <a href="https://linkedin.com/in/yourprofile" target="_blank" title="View LinkedIn Profile">
+      <img src="your-photo.jpg" alt="Your Name" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; box-shadow: 0 2px 6px rgba(0,0,0,0.2); transition: transform 0.3s ease;" />
+    </a>
+  </div>
+
+  <!-- Name and Contact Info -->
+  <div>
+    <h1>Your Full Name</h1>
+    <div class="contact-info">
+      <span>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></span><br>
+      <span>Phone: +123 456 7890</span><br>
+      <span>LinkedIn: <a href="https://linkedin.com/in/yourprofile">linkedin.com/in/yourprofile</a></span><br>
+      <span>Portfolio: <a href="https://yourportfolio.com">yourportfolio.com</a></span>
+    </div>
+    
+    <!-- Download CV Button -->
+    <div style="margin-top: 10px;">
+      <a href="Your-CV.pdf" download class="download-btn">Download CV</a>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thesis Title Here</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', serif;
+      font-size: 12pt;
+      background: #fff;
+      color: #000;
+      margin: 1in;
+      line-height: 1.5;
+      text-align: justify;
+    }
+
+    nav {
+      background: #004085;
+      padding: 10px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      font-size: 12pt;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background-color: #002752;
+      outline: none;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-weight: bold;
+      font-size: 16pt;
+      margin-bottom: 0;
+    }
+
+    .author, .supervisor, .institution {
+      font-size: 12pt;
+      margin: 5px 0;
+      text-align: center;
+    }
+
+    section {
+      margin-top: 40px;
+    }
+
+    h2 {
+      font-weight: bold;
+      font-size: 14pt;
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    p {
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+
+    th, td {
+      border: 1px solid #000;
+      padding: 8px;
+      font-size: 12pt;
+      text-align: left;
+    }
+
+    th {
+      font-weight: bold;
+      background-color: #f0f0f0;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 20px auto;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 5px 0;
+      }
+    }
+
+    @media print {
+      nav,
+      button {
+        display: none !important;
+      }
+
+      body {
+        margin: 1in;
+        background: white;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#abstract">Abstract</a>
+    <a href="#introduction">Introduction</a>
+    <a href="#literature-review">Literature Review</a>
+    <a href="#data-methodology">Data & Methodology</a>
+    <a href="#research-gap">Research Gap</a>
+    <a href="#results-discussion">Result & Discussion</a>
+    <a href="#conclusion">Conclusion</a>
+    <a href="#future-scope">Future Scope</a>
+    <a href="#references">References</a>
+  </nav>
+
+  <div class="container">
+    <header>
+      <h1>Thesis Title</h1>
+      <p class="author"><strong>Author:</strong> [Author Name]</p>
+      <p class="supervisor"><strong>Supervisor(s):</strong> [Supervisor Name(s)]</p>
+      <p class="institution"><strong>[Institution Name]</strong></p>
+    </header>
+
+    <section id="abstract">
+      <h2>Abstract</h2>
+      <p>[Your abstract text goes here]</p>
+    </section>
+
+    <section id="introduction">
+      <h2>1. Introduction</h2>
+      <p>[Your introduction text goes here]</p>
+    </section>
+
+    <section id="literature-review">
+      <h2>2. Literature Review</h2>
+      <p>[Your literature review text goes here]</p>
+    </section>
+
+    <section id="data-methodology">
+      <h2>3. Data and Methodology</h2>
+      <p>[Your data and methods text goes here]</p>
+    </section>
+
+    <section id="research-gap">
+      <h2>4. Research Gap</h2>
+      <p>[Your research gap text goes here]</p>
+    </section>
+
+    <section id="results-discussion">
+      <h2>5. Result and Discussion</h2>
+      <p>[Your results and discussion text goes here]</p>
+
+      <!-- Optional Table -->
+      <table>
+        <thead>
+          <tr>
+            <th>Heading 1</th>
+            <th>Heading 2</th>
+            <th>Heading 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Data 1</td>
+            <td>Data 2</td>
+            <td>Data 3</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="conclusion">
+      <h2>6. Conclusion</h2>
+      <p>[Your conclusion text goes here]</p>
+    </section>
+
+    <section id="future-scope">
+      <h2>7. Future Scope</h2>
+      <p>[Your future scope text goes here]</p>
+    </section>
+
+    <section id="references">
+      <h2>References</h2>
+      <p>[Your APA references go here]</p>
+    </section>
+  </div>
+
+  <div style="text-align: center; margin-top: 40px;">
+    <button onclick="window.print()" 
+            style="padding: 10px 20px; font-size: 14pt; background-color: #004085; color: white; border: none; border-radius: 4px; cursor: pointer;">
+      Print
+    </button>
+  </div>
+
+</body>
+</html>

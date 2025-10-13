@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CleanWave Laundry - Home</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      margin: 0;
+      background-color: #0f0f0f;
+      color: #e0f7fa;
+    }
+
+    header {
+      background: linear-gradient(90deg, #00f2fe, #4facfe);
+      color: black;
+      padding: 40px 20px;
+      text-align: center;
+      text-shadow: 1px 1px 2px #fff;
+    }
+
+    nav {
+      background: #120078;
+      text-align: center;
+      padding: 12px 0;
+    }
+
+    nav a {
+      color: #39ff14;
+      text-decoration: none;
+      padding: 12px 18px;
+      display: inline-block;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #fff700;
+    }
+
+    .intro {
+      max-width: 1000px;
+      margin: 30px auto;
+      background-color: #1f1f1f;
+      padding: 25px;
+      border-left: 6px solid #00ffc8;
+      box-shadow: 0 0 10px #00fff7;
+      border-radius: 5px;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px #00ffe0;
+    }
+
+    h2 {
+      color: #00fff7;
+      text-shadow: 0 0 3px #00ffc8;
+    }
+
+    section img {
+      width: 100%;
+      border-radius: 5px;
+      margin-top: 15px;
+      border: 2px solid #00ffc8;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid #00ffc8;
+      padding: 12px;
+      text-align: left;
+      color: #e0f7fa;
+    }
+
+    th {
+      background-color: #00c9a7;
+      color: #000;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #1a0033;
+      color: #ccc;
+      margin-top: 40px;
+      font-size: 0.9em;
+    }
+
+    #contact {
+      max-width: 700px;
+      margin: 40px auto;
+      text-align: center;
+      background-color: #212121;
+      padding: 25px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px #00ffc8;
+    }
+
+    .print-button {
+      text-align: center;
+      margin: 50px auto;
+    }
+
+    .print-button button {
+      padding: 12px 25px;
+      font-size: 16pt;
+      background-color: #00ffc8;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00ffc8;
+      transition: background-color 0.3s ease;
+    }
+
+    .print-button button:hover {
+      background-color: #00c9a7;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      nav a {
+        display: block;
+        padding: 10px;
+      }
+    }
+
+    @media print {
+      .print-button {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>CleanWave Laundry</h1>
+    <p>Reliable | Affordable | Professional</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#facilities">Facilities</a>
+    <a href="#charges">Charges</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- 💧 Intro Section -->
+  <section class="intro">
+    <h2>Welcome to CleanWave Laundry</h2>
+    <p>
+      CleanWave Laundry is your trusted neighborhood solution for all laundry needs. Whether you're a busy professional, a student, or a family with a full load, our modern, eco-friendly facility is designed to provide you with spotless clothes and peace of mind.
+    </p>
+  </section>
+
+  <div class="container">
+    <section id="about">
+      <h2>About Us</h2>
+      <p>We bring premium laundry and dry-cleaning services to your doorstep with eco-conscious practices and real-time service updates.</p>
+      <img src="https://images.unsplash.com/photo-1607082349564-3b27696c0512" alt="About Us">
+    </section>
+
+    <section id="services">
+      <h2>Our Services</h2>
+      <ul>
+        <li>Wash & Fold</li>
+        <li>Dry Cleaning</li>
+        <li>Ironing & Pressing</li>
+        <li>Pickup & Delivery</li>
+      </ul>
+      <img src="https://images.unsplash.com/photo-1617692853024-254fa60b57e6" alt="Services">
+    </section>
+
+    <section id="facilities">
+      <h2>Our Facilities</h2>
+      <ul>
+        <li>Advanced Steam Machines</li>
+        <li>Eco Detergents</li>
+        <li>Waiting Lounge with Wi-Fi</li>
+        <li>Real-time Tracking</li>
+      </ul>
+      <img src="https://images.unsplash.com/photo-1581578025754-86db52f7d2cf" alt="Facilities">
+    </section>
+
+    <section id="charges">
+      <h2>Service Charges</h2>
+      <table>
+        <tr>
+          <th>Service</th>
+          <th>Price (₹)</th>
+        </tr>
+        <tr>
+          <td>Wash & Fold (per kg)</td>
+          <td>₹50</td>
+        </tr>
+        <tr>
+          <td>Dry Cleaning - Shirt</td>
+          <td>₹80</td>
+        </tr>
+        <tr>
+          <td>Suit (2-piece)</td>
+          <td>₹250</td>
+        </tr>
+        <tr>
+          <td>Ironing (per item)</td>
+          <td>₹15</td>
+        </tr>
+      </table>
+    </section>
+  </div>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>
+      📍 123 Laundry Lane, CleanCity<br>
+      📞 +91-9876543210<br>
+      📧 support@cleanwavelaundry.com
+    </p>
+  </section>
+
+  <footer>
+    &copy; 2025 CleanWave Laundry | All rights reserved
+  </footer>
+
+  <div class="print-button">
+    <button onclick="window.print()">Print / Save as PDF</button>
+  </div>
+
+</body>
+</html>
